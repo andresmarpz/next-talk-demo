@@ -1,6 +1,3 @@
-import {promises as fs} from 'fs';
-import path from 'path';
-
 export interface Product {
     id: number;
     name: string;
@@ -16,7 +13,7 @@ export interface Product {
 }
 
 export async function getProducts(){
-    const data = await fs.readFile(path.join(process.cwd(), 'json/data.json'), 'utf-8');
+    const data = await fetch('https://raw.githubusercontent.com/andresmarpz/next-talk-demo/main/json/data.json')
 
-    return JSON.parse(data) as { products: Product[] };
+    return await data.json() as { products: Product[] };
 }

@@ -10,7 +10,7 @@ export default function ProductItem({ product }: { product: Product }) {
                 <p className="text-gray-700 font-bold">${product.price}</p>
             </div>
             <div className="rounded-md overflow-hidden w-48 h-48 mx-auto relative">
-                <Image src={product.imageURL} fill alt={product.name} />
+                <Image src={product.imageURL} width={192} height={192} alt={product.name} />
             </div>
         </li>
     );

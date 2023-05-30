@@ -1,6 +1,10 @@
 import { getProducts } from "../../lib/get-products";
 import ProductItem from "./product";
 
+export const metadata = {
+  title: "Products",
+  description: "A list of products",
+}
 
 export default async function Home() {
   const { products } = await getProducts();
@@ -9,7 +13,7 @@ export default async function Home() {
     <main className="container mx-auto mt-20">
       <h1 className="text-3xl font-bold">Products</h1>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {products.map(product => <ProductItem product={product} />)}
+        {products.map(product => <ProductItem key={product.id} product={product} />)}
       </ul>
     </main>
   )
